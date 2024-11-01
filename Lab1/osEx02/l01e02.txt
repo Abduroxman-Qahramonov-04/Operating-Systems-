@@ -1,0 +1,44 @@
+Exercise 02
+-------------
+
+Permissions management
+
+Verify and reply to the following questions:
+- the username and the group to which you belong.
+Is it possible to modify them?
+  
+who
+groups
+
+Yes, it is possible to modify them if the user has the rights.
+
+- the position of your home directory within the file system hierarchy of the system you are using
+
+ls /home
+
+- the structure of your /home directory (e.g., its subdirectories, etc.)
+
+ls /home  
+
+- the rights of reading and writing on the various directories of the file system. Is it possible to modify access rights to your home directory?
+
+ls -l /home
+
+cd /home/user1
+
+ls -l /home/user1
+
+etc etc 
+
+
+- what happens if reading or execution rights are eliminated for a directory. Use both the octal notation (e.g., “654”) and the one based on characters (e.g., ”+uw-gx“) to modify the rights.
+How is it possible to modify in the same way the access rights to all the files and directories of a directory tree (for example, to eliminate the read right to all, user, group, and other of the directory osEx01backup)? 
+
+  Suggestion: man chmod ... recursive ...
+
+
+  chmod -r a-r soEx01backup
+
+
+
+
