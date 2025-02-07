@@ -1,0 +1,24 @@
+fork function is used to create child processes and used in multiprocessing programming.When the fork function is called it creates 
+child process and execution flow starts from the point it was called.Child process copies the stack and heap memory of a parent.Memory 
+is seperated but the code is shared.
+
+Prototype: pid_t fork(void);
+Return values: 
+0 - in case of child
+-1 - in case of error
+the pid of child in the parent;
+
+execve 
+the process that calls execve is totally substituted by the new proces.The new process is executed starting from the main.
+v = array of pointers
+e = receives the "environment variables" as a parameter,instead of using current one.
+
+Prototype:int execve(char* path, char* argv[], char* env[]);
+On success it doesn't return anything, on failure it reuturn -1;
+
+system - Exectus a command given as a string within a program.
+Example: system("ls -l");
+It's implemented using fork waitpid and exec.
+ 
+
+

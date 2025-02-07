@@ -1,0 +1,20 @@
+As the name implies First process that comes in the queue will be served first.Let's instantiate queue effeft with an example:
+
+Process AT  BT
+P1      0   10
+P2      2   5
+P3      4   1
+
+Since P3 joined the gruop altough it has the least burst time, waiting time will be longer than other two process.This is the clear example 
+of queue effect.
+
+And another example where the same FCFS algorithm will be used but queue won't occur, as the burst time of process that joined the queue
+is not that long:
+
+Process AT  BT
+P1      0   2
+P2      2   1
+P3      4   9
+
+But this problem will not occur when SJF algorithm is used because it only takes into consideration the arrival time when the 
+burst time of process equal otherwise the process that has the least burst time will be served.

@@ -1,0 +1,13 @@
+It prevents deadlock by requiring a strict order when requesting resources. 
+Each resource is assigned a number.Process must process requests in increasing order to avoid circular wait
+For example, if a process has already taken the Printer (1), it can request the Scanner (2) next, but not the Disk (3) before the Scanner.
+
+Let's say we have several processes all waiting on resources in a circular chain, like:
+Process 1 → Printer (1) → waiting for Scanner (2)
+Process 2 → Scanner (2) → waiting for Disk (3)
+Process 3 → Disk (3) → waiting for Printer (1)
+
+This creates a cycle and leads to a deadlock. However, with HRU, such a cycle can't happen because every process must follow the order (1 → 2 → 3), meaning no one can request in a way that loops back to the start.
+
+Proof (simplified):
+If a circular wait were to happen, it would mean that the smallest resource number comes after the largest one, which is impossible. This contradiction proves that circular wait cannot happen with HRU.
