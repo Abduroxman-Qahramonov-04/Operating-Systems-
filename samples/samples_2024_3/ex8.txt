@@ -1,0 +1,35 @@
+Describe the problem of the Readers and Writers in the case of precedence to Readers. Indicate the meaning
+of the various synchronization primitives used.
+
+Readers and Writers is one of the synchronization problems, where multiple readears can read the critical section at the
+same time if no writer is accesing it.When writer is using critical section no other reader or writer should access it.
+As for precedence to reader, it means prioritizing reader processes over writer processes when accessing a shared resource
+
+nR=0
+
+init (meR, 1)
+inti (meW,1)
+init (w,1)
+
+//Reader
+wait(meR)
+nR++
+if(nR == 1){
+    wait(w);
+}
+signal(meR)
+//reading
+wait(meR)
+nR--
+if(nR == 0){
+    signal(w)
+}
+signal(meR)
+
+
+//Writer 
+wait(meW)
+wait(w)
+//writing
+signal(w)
+signal(meW);

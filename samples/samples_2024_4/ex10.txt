@@ -1,0 +1,57 @@
+queue1[N1]
+queue2[N2]
+
+init(&sem1full, 0)
+init(&sem2full, 0)
+init(&empty1, N1);
+init(&empty2, N2);
+init(p1, 1);
+init(p2, 1);
+init(c1, 1);
+init(c2, 1);
+
+
+void P1(){
+    while(1){
+        int random = rand()%5
+        sleep(random);
+        produceQ1();
+        wait(&empty1);
+        wait(p1);
+        enqueueQ1();
+        signal(p1);
+        signal(&sem1full);
+    }
+}
+void P2(){
+    while(1){
+        int random = rand()%7
+        sleep(random);
+        produceQ2();
+        wait(empty2);
+        wait(p2);
+        enqueueQ2();
+        signal(p2);
+        signal(sem2full);
+    }
+}
+
+void Consumer(){
+    while(1){
+        int random = rand()%7
+        sleep(random);
+        if(((double)rand() / RAND_MAX) <= 0.6){
+            wait(sem1full);
+            wait(c1);
+            consumeQ1();
+            signal(c1);
+            signal(empty1);
+        }else{
+            wait(sem2full);
+            wait(c2);
+            consumeQ2();
+            signal(c2);
+            signal(empty2);
+        }
+    }
+}

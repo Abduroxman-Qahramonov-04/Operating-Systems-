@@ -1,0 +1,74 @@
+// this arc is not nesecarry= P7->P1
+// this arc is redundant too= P5->P1
+
+init(p1, 1);
+init(p2, 0);
+init(p3, 0);
+init(p4, 0);
+init(p5, 0);
+init(p6, 0);
+init(p7, 0);
+
+void P1(){
+    while(1){
+        wait(p1)
+        //code
+        signal(p2)
+        signal(p3)
+    }
+}
+void P2(){
+    while(1){
+        wait(p2)
+        //code
+        signal(p4)
+        signal(p5)
+    }
+}
+void P3(){
+    while(1){
+        wait(p3)
+        //code
+        signal(p6)
+        signal(p5)
+    }
+}
+void P4(){
+    while(1){
+        wait(p4)
+        //code
+        signal(p7)
+    }
+}
+void P5(){
+    while(1){
+        wait(p5)
+        wait(p5)
+        //code
+        signal(p7)
+    }
+}
+void P6(){
+    while(1){
+        wait(p6)
+        //code
+        signal(p7)
+    }
+}
+void P7(){
+    while(1){
+        wait(p7)
+        wait(p7)
+        wait(p7)
+        //code
+        signal(p1)
+    }
+}
+
+destroy(p1);
+destroy(p2);
+destroy(p3);
+destroy(p4);
+destroy(p5);
+destroy(p6);
+destroy(p7);

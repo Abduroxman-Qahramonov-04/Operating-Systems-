@@ -1,0 +1,53 @@
+init(&sem1, 1)
+init(&sem2, 0)
+init(&sem3, 0)
+init(&sem4, 0)
+init(&sem5, 0)
+init(&sem6, 0)
+
+void P1(){
+    while(1){
+        wait(&sem1);
+        //code
+        signal(&sem2);
+        signal(&sem3);
+        signal(&sem4);
+    }
+}
+void P2(){
+    while(1){
+        wait(&sem2);
+        //code
+        signal(&sem5);
+    }
+}
+void P3(){
+    while(1){
+        wait(&sem3);
+        //code
+        signal(&sem5);
+    }
+}
+void P4(){
+    while(1){
+        wait(&sem4);
+        //code
+        signal(&sem6);
+    }
+}
+void P5(){
+    while(1){
+        wait(&sem5);
+        wait(&sem5);
+        wait(&sem5);
+        //code
+        signal(&sem1);
+    }
+}
+void P6(){
+    while(1){
+        wait(&sem6);
+        //code 
+        signal(&sem5);
+    }
+}

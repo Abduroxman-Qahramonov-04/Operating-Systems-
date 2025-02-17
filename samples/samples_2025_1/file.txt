@@ -1,0 +1,5 @@
+axxxy 20 Giuseppe Rosso
+axxxxy 5 Anna Verde
+axy 2 Giorgio Giallo
+ay 10 Stefano Verde
+az 15 Giulio Rosa
