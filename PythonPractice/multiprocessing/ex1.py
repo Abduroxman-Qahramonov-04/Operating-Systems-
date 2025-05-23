@@ -17,6 +17,5 @@ def main():
     else:
         print("Hello from child 1:"+ str(os.getpid()))
 
-
 if __name__ == "__main__":
     main()
